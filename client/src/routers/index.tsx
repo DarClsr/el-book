@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Categories from "../pages/Categories";
 import Search from "../pages/Search";
 import Ranking from "../pages/Ranking";
+import BookList from "../pages/BookList";
 
 
  const Router= React.memo(() => {
@@ -23,6 +24,10 @@ import Ranking from "../pages/Ranking";
         {
             path:"/ranking",
             element:<Ranking/>
+        },
+        {
+            path:"/bookList",
+            element:<BookList />
         }
     ])
 
