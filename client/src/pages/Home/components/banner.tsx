@@ -17,6 +17,7 @@ const Banner = ({banners}: {banners:IBanner[]}) => {
         infinite: true,
         speed: 500,
         slidesToShow: 1,
+        dots:true,
         slidesToScroll: 1,
         autoplay:true,
         autoplaySpeed:5000,
@@ -26,8 +27,8 @@ const Banner = ({banners}: {banners:IBanner[]}) => {
         <Slider {...settings}>
             {
                 banners.map((banner, index) => {
-                    return <div key={index} className="flex justify-center items-center">
-                        <img className="w-full object-cover" src={banner.src} alt={banner.alt} />
+                    return <div key={index} className="flex justify-center items-center overflow-hidden h-[150px] rounded-md">
+                        <img className="w-full h-full object-cover" src={banner.src} alt={banner.alt} />
                     </div>
                 })
             }
