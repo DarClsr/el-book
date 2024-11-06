@@ -1,13 +1,14 @@
 :root {
     --clr: #222327;
+    --indicator-width: calc(100% / 5); /* 假设5个导航项，自动计算每项的宽度 */
 }
 
 
 
 .navigation {
-    width: 400px;
-    height: 70px;
-    background: #fff;
+    width: 100%;
+    height: 50px;
+    background: #222327;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -15,7 +16,7 @@
 }
 
 .navigation ul {
-    width: 350px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,7 +25,9 @@
 
 .navigation ul li {
     flex: 1;
-    height: 70px;
+    height: 50px;
+    display: flex;
+    align-items: center;
 }
 
 .navigation ul li a {
@@ -42,9 +45,9 @@
     position: relative;
     transition: 0.5s;
     display: block;
-    line-height: 75px;
+    line-height: 50px;
     font-size: 1.5em;
-    color: var(--clr);
+    color: #fff;
     z-index: 1;
 }
 
@@ -53,28 +56,34 @@
     font-size: 0.75em;
     position: absolute;
     transition: 0.5s;
-    transform: translateY(20px);
+    transform: translateY(0px);
     opacity: 0;
 }
 
+.navigation ul li.active {
+    // background-color: red;
+}
+
 .navigation ul li.active a .icon {
-    transform: translateY(-35px);
+    transform: translateY(-15px);
+    color: var(--clr);
 }
 
 .navigation ul li.active a .text {
     opacity: 1;
+    color: var(--clr);
     transform: translateY(10px);
 }
 
 .navigation ul .indicator {
     width: 70px;
     height: 70px;
-    background: #29fd53;
+    background: #fff;
     position: absolute;
     left: 0;
     top: -50%;
     border-radius: 50%;
-    border: 6px solid var(--clr);
+    border: 5px solid #dbd8d8;
     transition: 0.5s;
 }
 
@@ -83,9 +92,9 @@
     position: absolute;
     width: 20px;
     height: 20px;
-    top: 50%;
+    top: 30%;
     left: -22px;
-    box-shadow: 0 -10px 0 0 var(--clr);
+    box-shadow: 0 -10px 0 0 #fff;
     border-top-right-radius: 20px;
 }
 
@@ -94,8 +103,49 @@
     position: absolute;
     width: 20px;
     height: 20px;
-    top: 50%;
+    top: 30%;
     right: -22px;
-    box-shadow: -1px -10px 0 0 var(--clr);
+    box-shadow: -1px -10px 0 0 #fff;
     border-top-left-radius: 20px;
 }
+
+.navigation ul li.active ~ .indicator {
+    transform: translateX(calc(var(--indicator-width) * var(--index)));
+}
+
+/* 使用data-index属性来指定index */
+.navigation ul li[data-index="1"].active ~ .indicator {
+    --index: 0;
+}
+
+.navigation ul li[data-index="2"].active ~ .indicator {
+    --index: 1;
+}
+
+.navigation ul li[data-index="3"].active ~ .indicator {
+    --index: 2;
+}
+
+.navigation ul li[data-index="4"].active ~ .indicator {
+    --index: 3;
+}
+
+.navigation ul li[data-index="5"].active ~ .indicator {
+    --index: 4;
+}
+
+// .navgation ul li:nth-child(1).active ~ .indictor{
+//     transform: translateX(calc(70px * 0))
+// }
+// .navgation ul li:nth-child(2).active ~ .indictor{
+//     transform: translateX(calc(70px * 1))
+// }
+// .navgation ul li:nth-child(3).active ~ .indictor{
+//     transform: translateX(calc(70px * 2))
+// }
+// .navgation ul li:nth-child(4).active ~ .indictor{
+//     transform: translateX(calc(70px * 3))
+// }
+// .navgation ul li:nth-child(5).active ~ .indictor{
+//     transform: translateX(calc(70px * 4))
+// }

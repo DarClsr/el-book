@@ -28,13 +28,12 @@ const Home: any = () => {
 
 
     return (
-        <div className="homePage h-screen">
+        <div className="homePage h-full">
             <Header title="首页" />
-            <div className="banners p-[10px] rounded-md overflow-hidden h-[calc(100%-120px)]">
+            <div className="banners p-[10px] rounded-md overflow-hidden h-[calc(100%-100px)]">
                 <Banner banners={data.banner} />
                 <NavBar />
             </div>
-            <BottomNavgation />
         </div>
     )
 }
