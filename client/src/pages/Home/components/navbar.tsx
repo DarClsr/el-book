@@ -1,12 +1,13 @@
 import { IconBookmarks, IconCarambola, IconCategory, IconTrendingUp } from "@tabler/icons-react"
 import React from "react"
 import { Link } from "react-router-dom"
+import { IMenu } from "../../../types"
 
 
 const NavBar: React.FC = () => {
 
 
-    const menus = [
+    const menus:IMenu[] = [
         {
             title: "排行",
             color: "rgba(239,68,68,1)",

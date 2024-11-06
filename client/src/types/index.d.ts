@@ -1,27 +1,27 @@
-import { IBook } from "./book"
-
-
+import { IBook } from "./book";
 
 interface IBanner {
-    src: string,
-    alt: string
+  src: string;
+  alt: string;
 }
-
-
-
 
 interface IRanking {
-    id: string
-    title: string,
-    books: IBook[]
+  id: string;
+  title: string;
+  books: IBook[];
 }
 
-
-
 export interface IhomeData {
-    banner: IBanner[],
-    limited: IBook[],
-    popular: IBook[],
-    ranking:IRanking[],
-    recommend:IBook[]
+  banner: IBanner[];
+  limited: IBook[];
+  popular: IBook[];
+  ranking: IRanking[];
+  recommend: IBook[];
+}
+
+export interface IMenu {
+  title: string;
+  color: string;
+  icon: T;
+  path: string;
 }
