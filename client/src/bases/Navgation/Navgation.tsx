@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './index.scss'; // 把样式代码放到单独的 CSS 文件中
-import { IconCategory, IconHome, IconMessage, IconPlane, IconSettings, IconUserBitcoin } from '@tabler/icons-react';
+import { IconBookUpload, IconBookmarkFilled, IconCategory, IconHome, IconMessage, IconPlane, IconSettings, IconThumbDownFilled, IconThumbUpFilled, IconUserBitcoin } from '@tabler/icons-react';
 
 function BottomNavigation() {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -9,8 +9,8 @@ function BottomNavigation() {
     const menuItems = [
         { icon: <IconHome/>, label: '首页' },
         { icon: <IconCategory/>, label: '分类' },
-        { icon: <IconMessage />, label: 'Message' },
-        { icon: <IconUserBitcoin />, label: 'Profile' },
+        { icon: <IconThumbUpFilled />, label: '精选' },
+        { icon: <IconBookUpload />, label: '书架' },
         { icon: <IconUserBitcoin />, label: '我的' }
     ];
     const navRef = useRef(null);
