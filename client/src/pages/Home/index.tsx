@@ -25,6 +25,24 @@ const Home: any = () => {
         </>
     }
 
+
+    const renderHot =()=>{
+        return data.popular.map((v,index)=>{
+            return <div className="my-1" key={index}>
+                 <Book title={v.title} desc={v.desc} author={v.author} coverImg={v.coverImg} />
+            </div>
+        })
+    }
+
+
+    const renderRecommend =()=>{
+        return data.recommend.map((v,index)=>{
+            return <div className="my-1" key={index}>
+                 <Book title={v.title} desc={v.desc} author={v.author} coverImg={v.coverImg} />
+            </div>
+        })
+    }
+
     // console.log(data)
 
 
@@ -37,10 +55,19 @@ const Home: any = () => {
 
                 <div className="mt-10">
                     <Card title="热门精选" >
-                        <Book />
-                        <Book />
-                        <Book />
-                        <Book />
+                       {renderHot()}
+                    </Card>
+                </div>
+
+                <div className="mt-10">
+                    <Card title="今日推荐" >
+                       {renderRecommend()}
+                    </Card>
+                </div>
+
+                <div className="mt-10">
+                    <Card title="热门精选" >
+                       {renderHot()}
                     </Card>
                 </div>
             </div>
