@@ -37,9 +37,7 @@ const Home: any = () => {
 
     const renderRecommend =()=>{
         return data.recommend.map((v,index)=>{
-            return <div className="my-1" key={index}>
-                 <Book title={v.title} desc={v.desc} author={v.author} coverImg={v.coverImg} />
-            </div>
+            return  <Book layout="vertical" title={v.title} key={index} desc={v.desc} author={v.author} coverImg={v.coverImg} />
         })
     }
 
@@ -60,13 +58,13 @@ const Home: any = () => {
                 </div>
 
                 <div className="mt-10">
-                    <Card title="今日推荐" >
+                    <Card title="今日推荐" layout="vertical" >
                        {renderRecommend()}
                     </Card>
                 </div>
 
                 <div className="mt-10">
-                    <Card title="热门精选" >
+                    <Card title="热门精选"  >
                        {renderHot()}
                     </Card>
                 </div>

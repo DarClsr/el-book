@@ -13,7 +13,7 @@ function BottomNavigation() {
         { icon: <IconBookUpload />, label: '书架' },
         { icon: <IconUserBitcoin />, label: '我的' }
     ];
-    const navRef = useRef(null);
+    const navRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         if (navRef.current) {
