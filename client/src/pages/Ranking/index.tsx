@@ -3,7 +3,7 @@
 const  Ranking = ()=>{
 
     return <div>
-        Ranking
+        ranking
     </div>
 
 }

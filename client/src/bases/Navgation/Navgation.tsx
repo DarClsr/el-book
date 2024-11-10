@@ -1,29 +1,45 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './index.scss'; // 把样式代码放到单独的 CSS 文件中
 import { IconBookUpload, IconBookmarkFilled, IconCategory, IconHome, IconMessage, IconPlane, IconSettings, IconThumbDownFilled, IconThumbUpFilled, IconUserBitcoin } from '@tabler/icons-react';
+import { Link, useLocation } from 'react-router-dom';
 
 function BottomNavigation() {
     const [activeIndex, setActiveIndex] = useState(0);
     const [indicatorWidth, setIndicatorWidth] = useState(0);
     const [diffWidth, setDiffWidth] = useState(0);
+    const location =useLocation()
     const menuItems = [
-        { icon: <IconHome/>, label: '首页' },
-        { icon: <IconCategory/>, label: '分类' },
-        { icon: <IconThumbUpFilled />, label: '精选' },
-        { icon: <IconBookUpload />, label: '书架' },
-        { icon: <IconUserBitcoin />, label: '我的' }
+        { icon: <IconHome />, label: '首页', path: "/" },
+        { icon: <IconCategory />, label: '分类', path: "/catgories" },
+        { icon: <IconThumbUpFilled />, label: '精选', path: "/ranking" },
+        { icon: <IconBookUpload />, label: '书架', path: "/market" },
+        { icon: <IconUserBitcoin />, label: '我的', path: "/profile" }
     ];
     const navRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         if (navRef.current) {
-          // 计算每个导航项的宽度
-          const itemWidth = navRef.current.offsetWidth / menuItems.length;
-          setDiffWidth((itemWidth-75)/2);
-          setIndicatorWidth(itemWidth);
+            // 计算每个导航项的宽度
+            const itemWidth = navRef.current.offsetWidth / menuItems.length;
+            setDiffWidth((itemWidth - 75) / 2);
+            setIndicatorWidth(itemWidth);
         }
-      }, [menuItems.length]);
-      
+
+        const index=menuItems.findIndex(v=>v.path===location.pathname);
+
+        if(index>-1){
+            setActiveIndex(index)
+        }
+
+        console.log(location)
+
+
+
+
+    }, [menuItems.length]);
+
+
+
 
     return (
         <div className="navigation" ref={navRef}>
@@ -35,12 +51,12 @@ function BottomNavigation() {
                         onClick={() => setActiveIndex(index)}
                         data-index={index}
                     >
-                        <a href="#">
+                        <Link to={item.path}>
                             <span className="icon">
-                                {item.icon}  
+                                {item.icon}
                             </span>
                             <span className="text">{item.label}</span>
-                        </a>
+                        </Link>
                     </li>
                 ))}
                 <div

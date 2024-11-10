@@ -88,25 +88,25 @@
 }
 
 .indicator::before {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    top: 30%;
-    left: -22px;
-    box-shadow: 0 -10px 0 0 #fff;
-    border-top-right-radius: 20px;
+    // content: "";
+    // position: absolute;
+    // width: 20px;
+    // height: 20px;
+    // top: 30%;
+    // left: -22px;
+    // box-shadow: 0 -10px 0 0 #fff;
+    // border-top-right-radius: 20px;
 }
 
 .indicator::after {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    top: 30%;
-    right: -22px;
-    box-shadow: -1px -10px 0 0 #fff;
-    border-top-left-radius: 20px;
+    // content: "";
+    // position: absolute;
+    // width: 20px;
+    // height: 20px;
+    // top: 30%;
+    // right: -22px;
+    // box-shadow: -1px -10px 0 0 #fff;
+    // border-top-left-radius: 20px;
 }
 
 .navigation ul li.active ~ .indicator {

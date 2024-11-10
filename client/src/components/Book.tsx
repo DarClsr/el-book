@@ -13,8 +13,8 @@ const Book: React.FC<BookProps> = ({ title = "", desc = "", author = "", coverIm
     return <li className="py-1">
         <a
             href="#"
-            className={`w-full flex items-stretch bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 
-            dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 
+            className={`w-full flex items-stretch bg-white border border-gray-200 rounded-lg  hover:bg-gray-100 
+            dark:border-gray-700  dark:hover:bg-gray-700 
             ${layout === "horizontal" ? "flex-row" : "flex-col"}`}
         >
             <div
@@ -32,7 +32,7 @@ const Book: React.FC<BookProps> = ({ title = "", desc = "", author = "", coverIm
                 className={`flex flex-1 flex-col justify-between p-4 leading-normal ${layout === "horizontal" ? "h-[150px]" : "h-auto"
                     }`}
             >
-                <p className="text-xs font-bold tracking-tight text-gray-900 dark:text-white text-ellipsis whitespace-nowrap overflow-hidden">
+                <p className="text-xs font-bold tracking-tight text-gray-900  text-ellipsis whitespace-nowrap overflow-hidden">
                     {title}
                 </p>
 

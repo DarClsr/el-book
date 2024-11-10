@@ -14,7 +14,7 @@ import BookList from "../pages/BookList";
             element: <Home />
         },
         {
-            path:"catgories",
+            path:"/catgories",
             element:<Categories />
         },
         {

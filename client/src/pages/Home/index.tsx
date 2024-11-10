@@ -9,6 +9,8 @@ import "./components/index.scss"
 import NavBar from "./components/navbar";
 import Card from "../../components/Card";
 import Book from "../../components/Book";
+import CountDown from "../../components/CountDown";
+import Ranking from "./components/ranking";
 
 const Home: any = () => {
     const { data, error } = useRequest<IhomeData>({
@@ -34,6 +36,12 @@ const Home: any = () => {
         })
     }
 
+    const renderCountDown=()=>{
+        return <div className="ml-3">
+            <CountDown />
+        </div>
+    }
+
 
     const renderRecommend =()=>{
         return data.recommend.map((v,index)=>{
@@ -41,13 +49,23 @@ const Home: any = () => {
         })
     }
 
-    // console.log(data)
+    const renderTime =()=>{
+        return data.limited.map((v,index)=>{
+            return  <Book layout="vertical" title={v.title} key={index} desc={v.desc} author={v.author} coverImg={v.coverImg} />
+        })
+    }
+
+
+    
+  
+
+
 
 
     return (
-        <div className="homePage h-full">
+        <div className="homePage h-full pb-[10px]">
             <Header title="首页" />
-            <div className=" p-[10px] rounded-md overflow-hidden h-[calc(100%-50px)] overflow-y-auto">
+            <div className=" p-[5px] rounded-md overflow-hidden h-[calc(100%-50px)] overflow-y-auto">
                 <Banner banners={data.banner} />
                 <NavBar />
 
@@ -64,8 +82,14 @@ const Home: any = () => {
                 </div>
 
                 <div className="mt-10">
-                    <Card title="热门精选"  >
-                       {renderHot()}
+                    <Card title="限时免费"  layout="vertical" tlele_slot={renderCountDown()}  >
+                       {renderTime()}
+                    </Card>
+                </div>
+
+                <div className="mt-10">
+                    <Card title="排行榜"    >
+                       <Ranking tabs={data.ranking} />
                     </Card>
                 </div>
             </div>
